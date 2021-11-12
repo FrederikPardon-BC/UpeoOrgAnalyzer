@@ -63,7 +63,6 @@
         <name>Dashboard</name>
     </types>
         <types>
-        <members>OrgMetrics</members>
         <members>OrgMetrics/Field_Usage_rf5</members>
         <name>Report</name>
     </types>
