@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Feature_Type__c</fullName>
+    <externalId>false</externalId>
+    <label>Feature Type</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Unassigned Page Layouts</fullName>
+                <default>false</default>
+                <label>Unassigned Page Layouts</label>
+            </value>
+            <value>
+                <fullName>Unassigned Record Types</fullName>
+                <default>false</default>
+                <label>Unassigned Record Types</label>
+            </value>
+            <value>
+                <fullName>Field Usage</fullName>
+                <default>false</default>
+                <label>Field Usage</label>
+            </value>
+            <value>
+                <fullName>Inactive Workflow Rules</fullName>
+                <default>false</default>
+                <label>Inactive Workflow Rules</label>
+            </value>
+            <value>
+                <fullName>Inactive Validation Rules</fullName>
+                <default>false</default>
+                <label>Inactive Validation Rules</label>
+            </value>
+            <value>
+                <fullName>Active Validation Rules</fullName>
+                <default>false</default>
+                <label>Active Validation Rules</label>
+            </value>
+            <value>
+                <fullName>Critical Permission Assignments</fullName>
+                <default>false</default>
+                <label>Critical Permission Assignments</label>
+            </value>
+            <value>
+                <fullName>Unused Reports</fullName>
+                <default>false</default>
+                <label>Unused Reports</label>
+            </value>
+            <value>
+                <fullName>PathLightning Sales Console</fullName>
+                <default>false</default>
+                <label>PathLightning Sales Console</label>
+            </value>
+            <value>
+                <fullName>Formula Fields with JavaScript Code</fullName>
+                <default>false</default>
+                <label>Formula Fields with JavaScript Code</label>
+            </value>
+            <value>
+                <fullName>Unused Dashboards</fullName>
+                <default>false</default>
+                <label>Unused Dashboards</label>
+            </value>
+            <value>
+                <fullName>Macros</fullName>
+                <default>false</default>
+                <label>Macros</label>
+            </value>
+            <value>
+                <fullName>API Versions</fullName>
+                <default>false</default>
+                <label>API Versions</label>
+            </value>
+            <value>
+                <fullName>Fields on Page Layouts</fullName>
+                <default>false</default>
+                <label>Fields on Page Layouts</label>
+            </value>
+            <value>
+                <fullName>Multiple Apex Triggers per Object</fullName>
+                <default>false</default>
+                <label>Multiple Apex Triggers per Object</label>
+            </value>
+            <value>
+                <fullName>Unassigned Permission Sets</fullName>
+                <default>false</default>
+                <label>Unassigned Permission Sets</label>
+            </value>
+            <value>
+                <fullName>Files Adoption</fullName>
+                <default>false</default>
+                <label>Files Adoption</label>
+            </value>
+            <value>
+                <fullName>Active Validation Rule Limits</fullName>
+                <default>false</default>
+                <label>Active Validation Rule Limits</label>
+            </value>
+            <value>
+                <fullName>News and Twitter</fullName>
+                <default>false</default>
+                <label>News and Twitter</label>
+            </value>
+            <value>
+                <fullName>File Storage Limits</fullName>
+                <default>false</default>
+                <label>File Storage Limits</label>
+            </value>
+            <value>
+                <fullName>Disable Debug Mode</fullName>
+                <default>false</default>
+                <label>Disable Debug Mode</label>
+            </value>
+            <value>
+                <fullName>Unassigned Roles</fullName>
+                <default>false</default>
+                <label>Unassigned Roles</label>
+            </value>
+            <value>
+                <fullName>Details Tab on Record Pages</fullName>
+                <default>false</default>
+                <label>Details Tab on Record Pages</label>
+            </value>
+            <value>
+                <fullName>S-Controls</fullName>
+                <default>false</default>
+                <label>S-Controls</label>
+            </value>
+            <value>
+                <fullName>Active Workflow Rule Limits</fullName>
+                <default>false</default>
+                <label>Active Workflow Rule Limits</label>
+            </value>
+            <value>
+                <fullName>Inactive Chatter Users</fullName>
+                <default>false</default>
+                <label>Inactive Chatter Users</label>
+            </value>
+            <value>
+                <fullName>Omni-Channel</fullName>
+                <default>false</default>
+                <label>Omni-Channel</label>
+            </value>
+            <value>
+                <fullName>Lightning Components on Record Lightning Pages</fullName>
+                <default>false</default>
+                <label>Lightning Components on Record Lightning Pages</label>
+            </value>
+            <value>
+                <fullName>Case Feed</fullName>
+                <default>false</default>
+                <label>Case Feed</label>
+            </value>
+            <value>
+                <fullName>Migrating Workflow Rules to Flow Builder</fullName>
+                <default>false</default>
+                <label>Migrating Workflow Rules to Flow Builder</label>
+            </value>
+            <value>
+                <fullName>Custom Field Limits</fullName>
+                <default>false</default>
+                <label>Custom Field Limits</label>
+            </value>
+            <value>
+                <fullName>Hard-Coded URLs</fullName>
+                <default>false</default>
+                <label>Hard-Coded URLs</label>
+            </value>
+            <value>
+                <fullName>Unassigned Custom Profiles</fullName>
+                <default>false</default>
+                <label>Unassigned Custom Profiles</label>
+            </value>
+            <value>
+                <fullName>User Logins</fullName>
+                <default>false</default>
+                <label>User Logins</label>
+            </value>
+            <value>
+                <fullName>Page Layouts per Object</fullName>
+                <default>false</default>
+                <label>Page Layouts per Object</label>
+            </value>
+            <value>
+                <fullName>Custom Profiles with a Low Number of Users</fullName>
+                <default>false</default>
+                <label>Custom Profiles with a Low Number of Users</label>
+            </value>
+            <value>
+                <fullName>Active Sharing Rule Limits</fullName>
+                <default>false</default>
+                <label>Active Sharing Rule Limits</label>
+            </value>
+            <value>
+                <fullName>Unsupported Browsers</fullName>
+                <default>false</default>
+                <label>Unsupported Browsers</label>
+            </value>
+            <value>
+                <fullName>Permission Sets with a Low Number of Users</fullName>
+                <default>false</default>
+                <label>Permission Sets with a Low Number of Users</label>
+            </value>
+            <value>
+                <fullName>Static Resource Limits</fullName>
+                <default>false</default>
+                <label>Static Resource Limits</label>
+            </value>
+            <value>
+                <fullName>Keyboard Shortcuts</fullName>
+                <default>false</default>
+                <label>Keyboard Shortcuts</label>
+            </value>
+            <value>
+                <fullName>Replacing Related Lists with the Related List Quick Links Component</fullName>
+                <default>false</default>
+                <label>Replacing Related Lists with the Related List Quick Links Component</label>
+            </value>
+            <value>
+                <fullName>New Code Using Old API Versions</fullName>
+                <default>false</default>
+                <label>New Code Using Old API Versions</label>
+            </value>
+            <value>
+                <fullName>Duplicate Management</fullName>
+                <default>false</default>
+                <label>Duplicate Management</label>
+            </value>
+            <value>
+                <fullName>Convert Attachment to Files</fullName>
+                <default>false</default>
+                <label>Convert Attachment to Files</label>
+            </value>
+            <value>
+                <fullName>Lightning Service Console</fullName>
+                <default>false</default>
+                <label>Lightning Service Console</label>
+            </value>
+            <value>
+                <fullName>Incomplete Chatter Profiles</fullName>
+                <default>false</default>
+                <label>Incomplete Chatter Profiles</label>
+            </value>
+            <value>
+                <fullName>Data Storage Limits</fullName>
+                <default>false</default>
+                <label>Data Storage Limits</label>
+            </value>
+            <value>
+                <fullName>Out-of-Date Browsers</fullName>
+                <default>false</default>
+                <label>Out-of-Date Browsers</label>
+            </value>
+            <value>
+                <fullName>Record Types per ObjectNotes and Attachments Related List</fullName>
+                <default>false</default>
+                <label>Record Types per ObjectNotes and Attachments Related List</label>
+            </value>
+            <value>
+                <fullName>Flow Runtimes</fullName>
+                <default>false</default>
+                <label>Flow Runtimes</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

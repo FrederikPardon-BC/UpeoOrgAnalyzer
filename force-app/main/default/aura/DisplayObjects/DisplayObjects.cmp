@@ -1,0 +1,80 @@
+<aura:component controller="ObjectsFieldsList" implements="force:hasRecordId,force:appHostable,flexipage:availableForAllPageTypes" access="global">
+	  
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name ="selectedObjectList" type = "List" default = "[]" description="Selected Objects"/>
+    <aura:attribute name="filter" type="String" />
+    <aura:attribute name="values" type="List" default="[]"/>
+    <aura:attribute name="data" type= "List" default="[]" />
+    <aura:attribute name="UnfilteredData" type= "List" default="[]" />
+    <aura:attribute name="radioOptions" type="List" default="[
+                                                        {'label': 'Get Single Object', 'value': 'single'},
+                                                        {'label': 'Get Multiple Objects', 'value': 'multiple'}
+                                                        ]"/>
+    <aura:attribute name="radioValue" type="String" default="single"/>
+
+    <div class="slds-box slds-theme_default slds-theme_backgroundColor-lightblue">
+    
+    <lightning:radioGroup name="radioGroup"
+                          label="Object Query Type"
+                          options="{! v.radioOptions }"
+                          value="{! v.radioValue }"
+                          onchange="{! c.doInit}"
+                          type="radio"/>
+
+
+   	<div class="slds-col">
+
+        <aura:if isTrue="{! v.radioValue == 'single'}">
+
+            <div class="slds-col">
+                <lightning:combobox aura:id="SobjectSingle"
+                                    name="Object"
+                                    label="Select Object to analyze"
+                                    placeholder="Select Object"
+                                    onchange="{!c.getFields}"
+                                    autocomplete="true"
+                                    options=""
+                /></div>
+
+            <div class="slds-col">
+
+                <lightning:dualListbox aura:id = "FieldsList"
+                                       name="FieldsList"
+                                       label= "Select Fields To Analyze"
+                                       sourceLabel="Available"
+                                       selectedLabel="Selected"
+                                       fieldLevelHelp="Select your the Fields to analyze"
+                                       options=""
+                                       />
+
+            </div>
+
+            <div class="slds-p-top_medium">
+                <lightning:button variant="brand" label="Get Field Usage" onclick="{!c.getFieldUsageSingle}" />
+            </div>
+        </aura:if>
+
+        <aura:if isTrue="{! v.radioValue == 'multiple'}">
+        <div onkeyup="{! c.doFilter}">
+        <lightning:input name="x" value="{!v.filter}" label="Filter" placeholder="Search Object by " type="search"/>
+        </div>
+        <lightning:dualListbox aura:id = "SobjectList"
+                               name="Objects"
+                               label= "Select Objects To Analyze"
+                               sourceLabel="Available"
+                               selectedLabel="Selected"
+                               fieldLevelHelp="Select your the SObjects to analyze"
+                               options=""
+                               value="{!v.values}"
+                               onchange="{! c.handleChange }"/>
+        
+        <div class="slds-p-top_medium">
+        <lightning:button variant="brand" label="Get Field Usage" onclick="{!c.getFieldUsage}" />
+        </div>
+        </aura:if>
+    	</div>
+
+    <div class="slds-col"></div>
+    </div>
+    
+</aura:component>
