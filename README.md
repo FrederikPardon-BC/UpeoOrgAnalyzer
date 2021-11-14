@@ -12,8 +12,8 @@ Named Credentials (Already part of the package)
 
 - Go to Setup, and enter 'App Manager' in the Quick Find box. Click on App Manager.
 
-!(/assets/AppManager.jpg)
-
+!(/assets/AppManager.JPG)
+!(assets/AppManager.JPG)
 
  
 <a href="https://githubsfdeploy.herokuapp.com?owner=FrederikPardon-BC&amp;repo=UpeoOrgAnalyzer&amp;tree=main">
