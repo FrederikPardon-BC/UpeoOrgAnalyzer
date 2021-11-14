@@ -1,5 +1,21 @@
 # UpeoOrgAnalyzer
 
+
+```
+Package Name: UpeoAnalyzer
+Version: 1.0
+
+A handy package for auditing your org.
+
+
+Installation URL Prod: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t09000000GEuD
+Installation URL Sandbox: https://test.salesforce.com/packaging/installPackage.apexp?p0=04t09000000GEuD
+Password: UpeoIsCool
+Dependencies: none
+```
+
+![image](assets/images/upeoanalyzer.PNG)
+
 After installing, you will need to create a Connected App, an Auth Provider and link a Named Credential in order to make the callouts work.
 
 To work with REST API in LC you need to create three things -
