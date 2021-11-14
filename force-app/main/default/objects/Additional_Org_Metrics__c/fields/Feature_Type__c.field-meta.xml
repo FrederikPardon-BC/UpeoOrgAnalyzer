@@ -265,6 +265,26 @@
                 <default>false</default>
                 <label>Flow Runtimes</label>
             </value>
+            <value>
+                <fullName>Large Volumes</fullName>
+                <default>false</default>
+                <label>Large Volumes</label>
+            </value>
+            <value>
+                <fullName>Limits</fullName>
+                <default>false</default>
+                <label>Limits</label>
+            </value>
+            <value>
+                <fullName>Number of Fields</fullName>
+                <default>false</default>
+                <label>Number of Fields</label>
+            </value>
+            <value>
+                <fullName>Active Workflow Rules</fullName>
+                <default>false</default>
+                <label>Active Workflow Rules</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

@@ -4,6 +4,7 @@
     <label>UpeoOptimizer</label>
     <oauthConfig>
         <callbackUrl>https://upeo.my.salesforce.com/services/authcallback/OptimizerUpeo</callbackUrl>
+        <consumerKey>3MVG9SOw8KERNN0.GEXqzI56LUDE9jZgxPGl96lQJBaG82BJUdVOUnRxFnlAaeVPm7yH0sMBx_PiYdENte3Ol</consumerKey>
         <isAdminApproved>false</isAdminApproved>
         <isConsumerSecretOptional>false</isConsumerSecretOptional>
         <isIntrospectAllTokens>false</isIntrospectAllTokens>

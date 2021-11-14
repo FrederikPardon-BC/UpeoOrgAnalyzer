@@ -1,0 +1,19 @@
+<!--
+ - Created by Frederik on 13/11/2021.
+ -->
+
+<aura:component description="UpeoAnalyzerGetMetrics" controller="UpeoAnalyzerGetMetricsController" implements="force:appHostable,flexipage:availableForAllPageTypes" access="global">
+
+
+
+    <div class="slds-box slds-theme_default slds-theme_backgroundColor-lightblue">
+    <lightning:layout horizontalAlign="space">
+        <lightning:layoutItem padding="around-small">
+            <div>
+                <lightning:button variant="brand" label="Analyze Org" title="Analyze Org" onclick="{! c.handleClick }" />
+            </div>
+        </lightning:layoutItem>
+    </lightning:layout>
+    </div>
+
+</aura:component>

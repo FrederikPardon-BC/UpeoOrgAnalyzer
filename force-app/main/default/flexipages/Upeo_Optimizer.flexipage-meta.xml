@@ -20,7 +20,7 @@
     <flexiPageRegions>
         <itemInstances>
             <componentInstance>
-                <componentName>DisplayObjects</componentName>
+                <componentName>UpeoAnalyzerObjectSelector</componentName>
             </componentInstance>
         </itemInstances>
         <name>region2</name>
@@ -42,12 +42,12 @@
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentName>OrgFlowMetrics</componentName>
+                <componentName>UpeoAnalyzerFlowMetrics</componentName>
             </componentInstance>
         </itemInstances>
         <itemInstances>
             <componentInstance>
-                <componentName>OrgValidationRuleMetrics</componentName>
+                <componentName>UpeoAnalyzerValidationRuleMetrics</componentName>
             </componentInstance>
         </itemInstances>
         <name>region3</name>

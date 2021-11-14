@@ -75,6 +75,16 @@
                 <default>false</default>
                 <label>Flow</label>
             </value>
+            <value>
+                <fullName>Objects</fullName>
+                <default>false</default>
+                <label>Objects</label>
+            </value>
+            <value>
+                <fullName>Org Limit</fullName>
+                <default>false</default>
+                <label>Org Limit</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

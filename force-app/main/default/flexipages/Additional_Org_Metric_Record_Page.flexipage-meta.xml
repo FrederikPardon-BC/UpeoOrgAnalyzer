@@ -86,6 +86,24 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
+                <fieldItem>Record.Number_of_Fields__c</fieldItem>
+                <visibilityRule>
+                    <booleanFilter>1 AND 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.Category__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Objects</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.Feature_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Number of Fields</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
                 <fieldInstanceProperties>
                     <name>uiBehavior</name>
                     <value>none</value>
@@ -134,6 +152,96 @@
             </componentInstance>
         </itemInstances>
         <name>Facet-48473b6c-243f-44a5-adcc-e00871a13590</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Limit_Max__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Limit_Used__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-4999141d-f085-45c0-91c1-c6d938ff1cc2</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Limit_Remaining__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-3af320db-c084-4a7a-8255-132a1f836dc6</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-4999141d-f085-45c0-91c1-c6d938ff1cc2</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-3af320db-c084-4a7a-8255-132a1f836dc6</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-5d6af38c-beee-4cfe-864e-1dafc9e91fd2</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Total_Records__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Number_of_Old_Records__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-943b8008-0209-46cb-8046-50f503a437f2</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Part_of_Managed_Package__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-fe6b98bb-a294-450d-9bcc-bb826d617776</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-943b8008-0209-46cb-8046-50f503a437f2</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-fe6b98bb-a294-450d-9bcc-bb826d617776</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-98693b54-1804-40b0-a80c-93cbfd02bebb</name>
         <type>Facet</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -223,6 +331,56 @@
     <flexiPageRegions>
         <itemInstances>
             <fieldInstance>
+                <fieldItem>Record.Object__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Flow_Trigger_Type__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-5c490ff9-76ce-49ff-9fc8-4a6cdd4650ba</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Active__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <itemInstances>
+            <fieldInstance>
+                <fieldItem>Record.Part_of_Managed_Package__c</fieldItem>
+            </fieldInstance>
+        </itemInstances>
+        <name>Facet-eb084955-8ea3-4d33-a346-404715189241</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-5c490ff9-76ce-49ff-9fc8-4a6cdd4650ba</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>body</name>
+                    <value>Facet-eb084955-8ea3-4d33-a346-404715189241</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:column</componentName>
+            </componentInstance>
+        </itemInstances>
+        <name>Facet-3d7ba4f0-ed6f-4024-a689-e4b116dd35e9</name>
+        <type>Facet</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <fieldInstance>
                 <fieldItem>Record.Flow_Trigger_Type__c</fieldItem>
             </fieldInstance>
         </itemInstances>
@@ -293,6 +451,52 @@
             <componentInstance>
                 <componentInstanceProperties>
                     <name>columns</name>
+                    <value>Facet-5d6af38c-beee-4cfe-864e-1dafc9e91fd2</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Org Limits</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <visibilityRule>
+                    <booleanFilter>1 AND 2</booleanFilter>
+                    <criteria>
+                        <leftValue>{!Record.Category__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Org</rightValue>
+                    </criteria>
+                    <criteria>
+                        <leftValue>{!Record.Feature_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Limits</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-98693b54-1804-40b0-a80c-93cbfd02bebb</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Object Volumes</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Feature_Type__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Large Volumes</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
                     <value>Facet-510fa36c-9ef7-4e17-87df-dbe58ea98e5f</value>
                 </componentInstanceProperties>
                 <componentInstanceProperties>
@@ -305,6 +509,26 @@
                         <leftValue>{!Record.Category__c}</leftValue>
                         <operator>EQUAL</operator>
                         <rightValue>Fields</rightValue>
+                    </criteria>
+                </visibilityRule>
+            </componentInstance>
+        </itemInstances>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>columns</name>
+                    <value>Facet-3d7ba4f0-ed6f-4024-a689-e4b116dd35e9</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>label</name>
+                    <value>Workflow Info</value>
+                </componentInstanceProperties>
+                <componentName>flexipage:fieldSection</componentName>
+                <visibilityRule>
+                    <criteria>
+                        <leftValue>{!Record.Category__c}</leftValue>
+                        <operator>EQUAL</operator>
+                        <rightValue>Workflow</rightValue>
                     </criteria>
                 </visibilityRule>
             </componentInstance>

@@ -2,6 +2,7 @@
 <ListView xmlns="http://soap.sforce.com/2006/04/metadata">
     <fullName>All</fullName>
     <columns>NAME</columns>
+    <columns>Component_Name__c</columns>
     <columns>Category__c</columns>
     <columns>Feature_Type__c</columns>
     <columns>Object__c</columns>
