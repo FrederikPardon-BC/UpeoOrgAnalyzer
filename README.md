@@ -10,10 +10,11 @@ Named Credentials (Already part of the package)
 
 ## Connected App
 
-- Go to Setup, and enter 'App Manager' in the Quick Find box. Click on App Manager.
+kozaeljkdsfx
 
  <img src="https://github.com/FrederikPardon-BC/UpeoOrgAnalyzer/blob/main/assets/AppManager.JPG />
 
+ !(/assets/AppManager.JPG)
  
 <a href="https://githubsfdeploy.herokuapp.com?owner=FrederikPardon-BC&amp;repo=UpeoOrgAnalyzer&amp;tree=main">
   <img src="https://raw.githubusercontent.com/afawcett/githubsfdeploy/master/src/main/webapp/resources/img/deploy.png" alt="Deploy to Salesforce" />
