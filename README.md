@@ -7,10 +7,16 @@ Version: 1.0
 
 A handy package for auditing your org.
 
-
+Unmanaged:
 Installation URL Prod: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t09000000GEuD
 Installation URL Sandbox: https://test.salesforce.com/packaging/installPackage.apexp?p0=04t09000000GEuD
 Password: UpeoIsCool
+
+Managed:
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7Q0000000amK
+https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7Q0000000amK
+
+
 Dependencies: none
 ```
 
