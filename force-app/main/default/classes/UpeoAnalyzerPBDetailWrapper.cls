@@ -10,7 +10,7 @@ public class UpeoAnalyzerPBDetailWrapper{
     public String ManageableState;	//unmanaged
     public Integer VersionNumber;	//1
     public String Status;	//Active
-    public cls_Description Description;
+    //public cls_Description Description;
     public String ProcessType;	//Workflow
     public String CreatedDate;	//2021-08-27T13:31:48.000+0000
     public String CreatedById;	//00509000007iKmCAAU

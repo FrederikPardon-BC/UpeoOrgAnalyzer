@@ -191,7 +191,7 @@ public class UpeoAnalyzer {
             aom.Category__c = 'Process Builder';
             aom.Feature_Type__c = 'Process Builder';
             aom.Component_Name__c =  flow.DeveloperName;
-            aom.External_Id__c = 'ProcessBuilder-' + flow.DeveloperName;
+            aom.External_Id__c = 'ProcessBuilder-' + flow.Id;
             aom.Process_Builder_Versions__c = (Integer) flow.expr0;
             aom.Component_Id__c = flow.Id;
             aomList.add(aom);
