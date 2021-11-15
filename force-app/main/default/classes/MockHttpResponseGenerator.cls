@@ -17,7 +17,7 @@
  * -----------------------------------------------------------------------------------------------
 */
 @IsTest
-global class MockHTTPResponseGenerator implements HttpCalloutMock {
+global class MockHttpResponseGenerator implements HttpCalloutMock {
 
     global HTTPResponse respond(HTTPRequest req){
 

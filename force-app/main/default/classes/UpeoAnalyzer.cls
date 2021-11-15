@@ -151,10 +151,10 @@ public class UpeoAnalyzer {
         List<Additional_Org_Metrics__c> aomList = new List<Additional_Org_Metrics__c>();
 
         for(Additional_Org_Metrics__c aom : [SELECT Id, Object__c, External_Id__c FROM Additional_Org_Metrics__c
-                                            WHERE Feature_Type__c = 'Large Volumes'
-                                            Order By Total_Records__c DESC
-                                            Limit 10
-                                            ]){
+        WHERE Feature_Type__c = 'Large Volumes'
+        Order By Total_Records__c DESC
+        Limit 10
+        ]){
 
             String query = 'SELECT Count() From ' +aom.Object__c + ' where LastModifiedDate < LAST_N_YEARS:1';
             system.debug(query);
@@ -167,51 +167,37 @@ public class UpeoAnalyzer {
 
 
     }
-
-    @future(callout = true)
     public static void getWorkflowRules() {
 
-        system.debug('getWorkflowRules method was called');
+        Id batchId = Database.executeBatch(new UpeoAnalyzerWorflowMetricsBatch(), 45);
 
-        List<Additional_Org_Metrics__c> addMetrics = new List<Additional_Org_Metrics__c>();
+    }
 
-        String reqUrl = 'callout:UpeoOptimizer/services/data/v47.0/tooling/query/?q=' +
-                'Select+Id,Name,TableEnumOrId+From+WorkflowRule';
+    public static void getProcessBuilders(){
 
-        String responseBody = UpeoAnalyzerToolingRequest.request(reqUrl);
+        String baseUrl = 'callout:UpeoOptimizer';
+        String query = '/services/data/v51.0/tooling/query?q=SELECT+Id,Definition.DeveloperName,count(Status)+FROM+Flow+WHERE+ProcessType=\'Workflow\'+Group+by+Definition.DeveloperName,Id';
 
-        UpeoAnalyzerWfrBasic wfrBasic = UpeoAnalyzerWfrBasic.parse(responseBody);
+        string responseBody = UpeoAnalyzerToolingRequest.request(baseUrl+query);
+        UpeoAnalyzerFlowWrapper qResult = UpeoAnalyzerFlowWrapper.parse(responseBody);
 
-        for(UpeoAnalyzerWfrBasic.cls_records detail :wfrBasic.records){
+        List<Additional_Org_Metrics__c> aomList = new List<Additional_Org_Metrics__c>();
+
+        for(UpeoAnalyzerFlowWrapper.cls_records flow :qResult.records ){
 
             Additional_Org_Metrics__c aom = new Additional_Org_Metrics__c();
-
-            System.debug(detail.attributes.url);
-            String detailUrl = (String) detail.attributes.url;
-            String wfrDetails = UpeoAnalyzerToolingRequest.request(detailUrl);
-            WFRToolingResult wfrDetailResult = WFRToolingResult.parse(wfrDetails);
-
-            aom.Component_Name__c = wfrDetailResult.Name;
-            aom.Category__c = 'Workflow';
-            if(wfrDetailResult.Metadata.active) {
-                aom.Feature_Type__c = 'Active Workflow Rules';
-            } else {
-                aom.Feature_Type__c = 'Inactive Workflow Rules';
-            }
-            aom.Active__c = wfrDetailResult.Metadata.active;
-            aom.Object__c = wfrDetailResult.TableEnumOrId;
-            aom.External_Id__c = 'WFR' +wfrDetailResult.Id;
-            aom.Flow_Trigger_Type__c = wfrDetailResult.Metadata.triggerType;
-            if(wfrDetailResult.ManageableState.contains('installed')){
-                aom.Part_of_Managed_Package__c = true;
-            } else {aom.Part_of_Managed_Package__c = false;}
-
-            addMetrics.add(aom);
+            aom.Category__c = 'Process Builder';
+            aom.Feature_Type__c = 'Process Builder';
+            aom.Component_Name__c =  flow.DeveloperName;
+            aom.External_Id__c = 'ProcessBuilder-' + flow.DeveloperName;
+            aom.Process_Builder_Versions__c = (Integer) flow.expr0;
+            aom.Component_Id__c = flow.Id;
+            aomList.add(aom);
         }
 
-        upsert addMetrics External_Id__c;
+        upsert aomList External_Id__c;
 
-        }
+    }
 
     @future(callout = true)
     public static void getActiveValidationRules() {
@@ -258,7 +244,7 @@ public class UpeoAnalyzer {
         }
 
         upsert addMetrics External_Id__c;
-        
+
     }
 
     public static void getFieldUsage(List<String> objectTypes){
@@ -281,23 +267,23 @@ public class UpeoAnalyzer {
             Id batchId = Database.executeBatch(new UpeoAnalyzerBatchFieldUsage(qry, fieldMap, objString));
         }
     }
-    
+
     public static void getRecordCounts(List<String> objList){
-        
+
         List<Additional_Org_Metrics__c> aomList = new List<Additional_Org_Metrics__c>();
-        
-        for (String obj : objList ){        
-        	
-            SObjectType type = Schema.getGlobalDescribe().get(obj);            
+
+        for (String obj : objList ){
+
+            SObjectType type = Schema.getGlobalDescribe().get(obj);
             String objName = type.getDescribe().getName();
-            
+
             //I know this is bad, but I'm still looking for a better way to do this.
             //For now it will have to do.
             String q = 'SELECT Count() FROM ' + objName;
             Integer count = Database.countQuery(q);
-            
+
             Additional_Org_Metrics__c aom = new Additional_Org_Metrics__c();
-            
+
             aom.Category__c = 'Objects';
             aom.Feature_Type__c = 'Large Volumes';
             aom.Object__c = obj;
@@ -305,9 +291,9 @@ public class UpeoAnalyzer {
             aom.Total_Records__c = count;
             aomList.add(aom);
         }
-        
+
         upsert aomList External_Id__c;
-    }        
+    }
 
     public static void geSelectedFieldUsage(List<String> fieldList, String objType){
 
