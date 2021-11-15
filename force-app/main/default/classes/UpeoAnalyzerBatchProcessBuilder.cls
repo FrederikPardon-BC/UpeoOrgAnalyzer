@@ -46,20 +46,26 @@ public with sharing class UpeoAnalyzerBatchProcessBuilder implements Database.Ba
 
             String responseBody = UpeoAnalyzerToolingRequest.request(qUrl);
 
-            UpeoAnalyzerPBDetailWrapper parsedResult = UpeoAnalyzerPBDetailWrapper.parse(responseBody);
+            if(responseBody != null) {
+                UpeoAnalyzerPBDetailWrapper parsedResult = UpeoAnalyzerPBDetailWrapper.parse(responseBody);
 
-            Map<String, String> resultMap = new Map <String, String>();
 
-            for(UpeoAnalyzerPBDetailWrapper.cls_processMetadataValues type : parsedResult.Metadata.processMetadataValues){
-                resultMap.put(type.name, type.value.stringValue);
+                Map<String, String> resultMap = new Map <String, String>();
+
+                if(parsedResult.Metadata.processMetadataValues != null) {
+                    for (UpeoAnalyzerPBDetailWrapper.cls_processMetadataValues type : parsedResult.Metadata.processMetadataValues) {
+                        resultMap.put(type.name, type.value.stringValue);
+                    }
+
+                    aom.Object__c = resultMap.get('ObjectType');
+                    aom.External_Id__c = 'ProcessBuilder-'+aom.Component_Id__c;
+                    aom.Flow_Trigger_Type__c = resultMap.get('TriggerType');
+                    if (parsedResult.Status == 'Active') {
+                        aom.Active__c = true;
+                    }
+                    aomList.add(aom);
+                }
             }
-
-            aom.Object__c = resultMap.get('ObjectType');
-            aom.Flow_Trigger_Type__c = resultMap.get('TriggerType');
-            if (parsedResult.Status == 'Active'){
-                aom.Active__c = true;
-            }
-            aomList.add(aom);
 
         }
 

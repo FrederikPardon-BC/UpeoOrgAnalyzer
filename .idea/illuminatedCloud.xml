@@ -4,10 +4,10 @@
     <option name="connections">
       <list>
         <IlluminatedCloudConnection>
-          <option name="connectionName" value="upeodev" />
+          <option name="connectionName" value="dev01" />
           <option name="connectionType" value="OAUTH" />
           <option name="defaultModuleName" value="UpeoOrgAnalyzer" />
-          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/upeodev/OfflineSymbolTable.zip" />
+          <option name="offlineSymbolTablePath" value="$PROJECT_DIR$/IlluminatedCloud/dev01/OfflineSymbolTable.zip" />
         </IlluminatedCloudConnection>
       </list>
     </option>

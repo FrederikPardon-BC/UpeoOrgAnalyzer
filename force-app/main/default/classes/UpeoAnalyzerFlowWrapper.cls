@@ -17,22 +17,28 @@
  * -----------------------------------------------------------------------------------------------
 */
 public class UpeoAnalyzerFlowWrapper {
-    public Integer size;    //340
-    public Integer totalSize;    //340
-    public boolean done;
-    public cls_queryLocator queryLocator;
-    public String entityTypeName;    //AggregateResult
-    public cls_records[] records;
-    class cls_queryLocator {
+    public Integer size;
+    public Integer totalSize;
+    public Boolean done;
+    public Object queryLocator;
+    public String entityTypeName;
+    public List<Records> records;
+
+    public class Attributes {
+        public String type;
+        public String url;
     }
-    public class cls_records {
-        public cls_attributes attributes;
-        public String DeveloperName;    //CartOrderItemUnitOfMeasureFillIn
-        Public String Id;
-        public Integer expr0;    //2
+
+    public class Definition {
+        public Attributes attributes;
+        public String DeveloperName;
     }
-    class cls_attributes {
-        public String type;    //AggregateResult
+
+    public class Records {
+        public Attributes attributes;
+        public String Id;
+        public Definition Definition;
+        public String Status;
     }
     public static UpeoAnalyzerFlowWrapper parse(String json) {
         return (UpeoAnalyzerFlowWrapper) System.JSON.deserialize(json, UpeoAnalyzerFlowWrapper.class);
