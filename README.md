@@ -7,14 +7,65 @@ Version: 1.0
 
 A handy package for auditing your org.
 
-
+Unmanaged:
 Installation URL Prod: https://login.salesforce.com/packaging/installPackage.apexp?p0=04t09000000GEuD
 Installation URL Sandbox: https://test.salesforce.com/packaging/installPackage.apexp?p0=04t09000000GEuD
 Password: UpeoIsCool
+
+Managed:
+https://login.salesforce.com/packaging/installPackage.apexp?p0=04t7Q0000000amK
+https://test.salesforce.com/packaging/installPackage.apexp?p0=04t7Q0000000amK
+
+
 Dependencies: none
 ```
 
+The Upeo Analyze package pulls information about your org from
+various sources and bundles them in a format that can be easily reported on.
+
+For the moment it analyzes the following:
+
+* Objects with a large set of records
+* Objects with a limited set of records
+* Object Field size (objects with a lot of fields)
+* Field usage analysis: get insights in how often a field is filled out or blank
+* Objects with records that haven't been modified in the last 2 years
+* Flow execution data: find out how often a Flow has been called or which flows haven't been executed in a long time
+* Validation rules: shows both active and inactive validation rules per object
+* Workflow rule data: get insights in the nbr of both active and inactive workflows per object
+
+This is just what the app analyzes in the first version. More will be added as we go.
+
+## Usage
+
+Before running this, make sure you followed the steps below that walk you through setting up a connected app and auth provider
+Make sure you assigned the permission set 'UpeoAnalyzer' to your user!
+
+Access the app by opening Upeo Analyzer from the App List:
+
+![image](assets/images/analyzer.png)
+
+Go to the Upeo Optimizer tab to launch the analyses you want
+
+The component on the left can be used to analyze object field usage
+
+The component on the right can be used to get the full analysis of your org
+
+The results are stored in the Additional Org Metrics object
+
+Some dashboards and reports come provided with the package, but feel free to add your own
+
+
 ![image](assets/images/upeoanalyzer.PNG)
+
+## Feedback
+
+Contact frederik.pardon@upeoconsulting with questions or features you would like to see included
+
+
+
+
+
 
 After installing, you will need to create a Connected App, an Auth Provider and link a Named Credential in order to make the callouts work.
 
