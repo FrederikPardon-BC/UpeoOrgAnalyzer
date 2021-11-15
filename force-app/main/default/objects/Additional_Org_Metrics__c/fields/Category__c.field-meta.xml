@@ -85,6 +85,11 @@
                 <default>false</default>
                 <label>Org Limit</label>
             </value>
+            <value>
+                <fullName>Process Builder</fullName>
+                <default>false</default>
+                <label>Process Builder</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

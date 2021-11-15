@@ -285,6 +285,11 @@
                 <default>false</default>
                 <label>Active Workflow Rules</label>
             </value>
+            <value>
+                <fullName>Process Builder</fullName>
+                <default>false</default>
+                <label>Process Builder</label>
+            </value>
         </valueSetDefinition>
     </valueSet>
 </CustomField>

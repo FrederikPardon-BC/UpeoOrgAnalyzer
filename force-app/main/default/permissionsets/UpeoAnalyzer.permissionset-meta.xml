@@ -95,6 +95,11 @@
         <readable>true</readable>
     </fieldPermissions>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>Additional_Org_Metrics__c.Component_Id__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Additional_Org_Metrics__c.Component_Name__c</field>
         <readable>true</readable>
@@ -188,6 +193,11 @@
         <editable>false</editable>
         <field>Additional_Org_Metrics__c.Percentage_Unused__c</field>
         <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>false</editable>
+        <field>Additional_Org_Metrics__c.Process_Builder_Versions__c</field>
+        <readable>false</readable>
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>

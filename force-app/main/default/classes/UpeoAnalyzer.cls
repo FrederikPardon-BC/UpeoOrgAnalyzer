@@ -8,6 +8,7 @@ public class UpeoAnalyzer {
         getFlowMetrics();
         getWorkflowRules();
         getAllObjectsFieldData();
+        getProcessBuilders();
 
 
     }
@@ -95,6 +96,7 @@ public class UpeoAnalyzer {
 
     }
 
+    @future(callout = true)
     public static void getSobjectRecordCount() {
 
         system.debug('getSobjectRecordCount method was called');

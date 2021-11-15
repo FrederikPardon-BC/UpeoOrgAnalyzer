@@ -1,14 +1,24 @@
 /**
- * Created by fpardon on 14/11/2021.
- */
-
-/**
- * Created by fpardon on 10/11/2021.
- */
-
+ * @Version: 1.0
+ * @Author: Frederik
+ * @Copyright: 2021 Upeo Consulting
+ * @Uses:
+ *
+ * -----------------------------------------------------------------------------------------------
+ * Description: 
+ *
+ *
+ * Created: 15/11/2021
+ * Last Updated: 15/11/2021
+ *
+ * Unit tests:
+ *
+ * Change log:
+ * -----------------------------------------------------------------------------------------------
+*/
 public class UpeoAnalyzerWorflowMetricsBatch implements Database.Batchable<Object>, Database.AllowsCallouts  {
 
-
+    public list<Object> stringList = new List<Object>{'abc', 'def'};
 
 
     public Iterable <object> start(Database.BatchableContext BC) {

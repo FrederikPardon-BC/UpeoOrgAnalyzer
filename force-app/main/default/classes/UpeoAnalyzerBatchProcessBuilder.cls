@@ -16,7 +16,7 @@
  * Change log:
  * -----------------------------------------------------------------------------------------------
 */
-public with sharing class UpeoAnalyzerBatchProcessBuilder implements Database.Batchable<sObject> {
+public with sharing class UpeoAnalyzerBatchProcessBuilder implements Database.Batchable<sObject>, Database.AllowsCallouts {
 
 
 
@@ -32,7 +32,7 @@ public with sharing class UpeoAnalyzerBatchProcessBuilder implements Database.Ba
 
     public void execute(Database.BatchableContext BC, List<Additional_Org_Metrics__c> scope) {
 
-        system.debug(scope.size());
+        List<Additional_Org_Metrics__c> aomList = new List<Additional_Org_Metrics__c>();
 
         for(SObject obj : scope){
 
@@ -43,11 +43,27 @@ public with sharing class UpeoAnalyzerBatchProcessBuilder implements Database.Ba
             String flowId = aom.Component_Id__c;
 
             String qUrl = baseUrl+path+flowId;
-            system.debug(qUrl);
 
+            String responseBody = UpeoAnalyzerToolingRequest.request(qUrl);
 
+            UpeoAnalyzerPBDetailWrapper parsedResult = UpeoAnalyzerPBDetailWrapper.parse(responseBody);
+
+            Map<String, String> resultMap = new Map <String, String>();
+
+            for(UpeoAnalyzerPBDetailWrapper.cls_processMetadataValues type : parsedResult.Metadata.processMetadataValues){
+                resultMap.put(type.name, type.value.stringValue);
+            }
+
+            aom.Object__c = resultMap.get('ObjectType');
+            aom.Flow_Trigger_Type__c = resultMap.get('TriggerType');
+            if (parsedResult.Status == 'Active'){
+                aom.Active__c = true;
+            }
+            aomList.add(aom);
 
         }
+
+        upsert aomList External_Id__c;
 
 
 
