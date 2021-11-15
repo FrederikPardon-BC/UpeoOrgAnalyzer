@@ -27,5 +27,3 @@ public class UpeoAnalyzerRecordCount {
         return (UpeoAnalyzerRecordCount) System.JSON.deserialize(json, UpeoAnalyzerRecordCount.class);
     }
 }
-
-

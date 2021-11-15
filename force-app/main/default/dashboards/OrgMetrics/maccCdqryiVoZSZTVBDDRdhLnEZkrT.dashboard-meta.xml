@@ -216,7 +216,8 @@
             <dashboardComponent>
                 <autoselectColumnsFromReport>false</autoselectColumnsFromReport>
                 <chartSummary>
-                    <column>RowCount</column>
+                    <aggregate>Sum</aggregate>
+                    <column>Additional_Org_Metrics__c.Flow_Execution_Times__c</column>
                 </chartSummary>
                 <componentType>Metric</componentType>
                 <decimalPrecision>-1</decimalPrecision>

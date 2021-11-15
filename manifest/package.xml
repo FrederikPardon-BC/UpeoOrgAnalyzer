@@ -55,6 +55,7 @@
         <members>MockHttpResponseGenerator</members>
         <members>WFRToolingResult</members>
         <members>UpeoAnalyzerBatchProcessBuilder</members>
+        <members>UpeoAnalyzerPBDetailWrapper</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -74,13 +75,13 @@
         <name>NamedCredential</name>
     </types>
     <types>
-        <members>OrgMetrics</members>
         <members>OrgMetrics/maccCdqryiVoZSZTVBDDRdhLnEZkrT</members>
         <members>OrgMetrics/XMcKNAUEBEMERPcNRbHXLyMVbQpzpN</members>
+        <members>OrgMetrics</members>
+        <members>OrgMetrics/FGeFCFKyEtCYbHQmnCPzTanjUxsYIg</members>
         <name>Dashboard</name>
     </types>
     <types>
-        <members>OrgMetrics</members>
         <members>OrgMetrics/Active_Validations_Rules_per_Objects_3gA</members>
         <members>OrgMetrics/Field_Usage_rf5</members>
         <members>OrgMetrics/Flows_Without_Executions_This_Year_3O2</members>
@@ -97,6 +98,10 @@
         <members>OrgMetrics/UpeoAnalyzer_Objects_By_Fields_pKT</members>
         <members>OrgMetrics/UpeoAnalyzer_Smallest_Objects</members>
         <members>OrgMetrics/UpeoAnalyzer_Small_Objects_By_Fields_U3J</members>
+        <members>Limits</members>
+        <members>Limits/File_Storage_Limit_5il</members>
+        <members>Limits/Permission_Set_Limit_gyn</members>
+        <members>Limits/Storage_Limit_auK</members>
         <name>Report</name>
     </types>
     <types>
