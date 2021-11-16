@@ -47,7 +47,7 @@ public class UpeoAnalyzerWorflowMetricsBatch implements Database.Batchable<Objec
 
             System.debug(detail.attributes.url);
             String detailUrl = (String) detail.attributes.url;
-            String baseUrl = 'callout:UpeoOptimizer/';
+            String baseUrl = 'callout:UpeoOptimizer';
             String wfrDetails = UpeoAnalyzerToolingRequest.request(baseUrl+detailUrl);
             WFRToolingResult wfrDetailResult = WFRToolingResult.parse(wfrDetails);
 

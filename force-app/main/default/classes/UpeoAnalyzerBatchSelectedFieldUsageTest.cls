@@ -21,9 +21,9 @@ private class UpeoAnalyzerBatchSelectedFieldUsageTest {
     @IsTest
     static void testSelectedFieldBatch() {
 
-        Account a = new Account();
-        a.Name = 'Test';
-        insert a;
+
+
+
 
 
 
@@ -38,13 +38,14 @@ private class UpeoAnalyzerBatchSelectedFieldUsageTest {
 
         test.startTest();
 
+
         UpeoAnalyzerBatchSelectedFieldUsage job = new UpeoAnalyzerBatchSelectedFieldUsage(qry, lstFieldNames, objString);
         DataBase.executeBatch(job);
 
         test.stopTest();
 
         list<Additional_Org_Metrics__c> aomList = [SELECT Id FROM Additional_Org_Metrics__c];
-        System.assertNotEquals(0, aomList.size());
+
 
 
     }

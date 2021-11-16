@@ -8,7 +8,7 @@ public class UpeoAnalyzer {
         getFlowMetrics();
         getWorkflowRules();
         getAllObjectsFieldData();
-        getProcessBuilders();
+        Id jobId = System.enqueueJob(new getProcessBuilders());
 
 
     }
@@ -176,17 +176,24 @@ public class UpeoAnalyzer {
 
     }
 
-    public static void getProcessBuilders(){
+
+    public class getProcessBuilders implements Queueable, Database.AllowsCallouts {
+
+        public void execute(QueueableContext context) {
 
         String baseUrl = 'callout:UpeoOptimizer';
         String queryAll = '/services/data/v51.0/tooling/query?q=SELECT+Definition.DeveloperName,count(Status)+FROM+Flow+WHERE+ProcessType=\'Workflow\'+Group+by+Definition.DeveloperName';
-        string queryActive = '/services/data/v51.0/tooling/query?q=SELECT+Id,Definition.DeveloperName,Status+FROM+Flow+WHERE+ProcessType=\'Workflow\'+AND+Status=\'Active\'';
+        String queryActive = '/services/data/v51.0/tooling/query?q=SELECT+Id,Definition.DeveloperName,Status+FROM+Flow+WHERE+ProcessType=\'Workflow\'+AND+Status=\'Active\'';
         String queryInactive = '/services/data/v51.0/tooling/query?q=SELECT+Id,Definition.DeveloperName,Status+FROM+Flow+WHERE+ProcessType=\'Workflow\'+AND+Status!=\'Active\'+Order+By+LastModifiedDate+DESC';
 
 
-        string responseBody = UpeoAnalyzerToolingRequest.request(baseUrl+queryAll);
-        string activeRespBody = UpeoAnalyzerToolingRequest.request(baseUrl+queryActive);
-        String inActiveRespBody = UpeoAnalyzerToolingRequest.request(baseUrl+queryInactive);
+        System.debug(baseUrl + queryAll);
+        System.debug(baseUrl + queryActive);
+        System.debug(baseUrl + queryInactive);
+
+        string responseBody = UpeoAnalyzerToolingRequest.request(baseUrl + queryAll);
+        string activeRespBody = UpeoAnalyzerToolingRequest.request(baseUrl + queryActive);
+        String inActiveRespBody = UpeoAnalyzerToolingRequest.request(baseUrl + queryInactive);
 
         UpeoAnalyzerFlowAggregate qResult = UpeoAnalyzerFlowAggregate.parse(responseBody);
         UpeoAnalyzerFlowWrapper parsedActive = UpeoAnalyzerFlowWrapper.parse(activeRespBody);
@@ -194,46 +201,46 @@ public class UpeoAnalyzer {
 
         Set<UpeoAnalyzerFlowWrapper.Records> distinctFlows = new Set<UpeoAnalyzerFlowWrapper.Records>(parsedinActive.records);
 
-        system.debug('!!!!!'+distinctFlows.size());
+        system.debug('!!!!!' + distinctFlows.size());
 
         Map<String, UpeoAnalyzerFlowWrapper.Records> flowMap = new Map<String, UpeoAnalyzerFlowWrapper.Records>();
         Map<String, UpeoAnalyzerFlowWrapper.Records> inActiveFlowMap = new Map<String, UpeoAnalyzerFlowWrapper.Records>();
 
-        for(UpeoAnalyzerFlowWrapper.Records activeFlow : parsedActive.records){
+        for (UpeoAnalyzerFlowWrapper.Records activeFlow : parsedActive.records) {
             flowMap.put(activeFlow.Definition.DeveloperName, activeFlow);
         }
 
-        for(UpeoAnalyzerFlowWrapper.Records inActiveFlow : distinctFlows){
+        for (UpeoAnalyzerFlowWrapper.Records inActiveFlow : distinctFlows) {
             inActiveFlowMap.put(inActiveFlow.Definition.DeveloperName, inActiveFlow);
         }
 
         List<Additional_Org_Metrics__c> aomList = new List<Additional_Org_Metrics__c>();
         Map<String, Additional_Org_Metrics__c> checkMap = new Map<String, Additional_Org_Metrics__c>();
 
-        for(UpeoAnalyzerFlowAggregate.Records flow :qResult.records ){
+        for (UpeoAnalyzerFlowAggregate.Records flow : qResult.records) {
 
-            if(flowMap.containsKey(flow.DeveloperName)){
+            if (flowMap.containsKey(flow.DeveloperName)) {
 
                 Additional_Org_Metrics__c aom = new Additional_Org_Metrics__c();
                 aom.Category__c = 'Process Builder';
                 aom.Feature_Type__c = 'Process Builder';
-                aom.Component_Name__c =  flow.DeveloperName;
+                aom.Component_Name__c = flow.DeveloperName;
                 aom.External_Id__c = 'ProcessBuilder-' + flowMap.get(flow.DeveloperName).Id;
                 aom.Process_Builder_Versions__c = (Integer) flow.expr0;
                 aom.Component_Id__c = flowMap.get(flow.DeveloperName).Id;
                 aom.Active__c = true;
                 aomList.add(aom);
-                checkMap.put(aom.Component_Name__c ,aom);
+                checkMap.put(aom.Component_Name__c, aom);
 
-            } else if(
+            } else if (
                     inActiveFlowMap.containsKey(flow.DeveloperName) == true
-                    && checkMap.containsKey(flow.DeveloperName) == false
-                    ){
+                            && checkMap.containsKey(flow.DeveloperName) == false
+                    ) {
 
                 Additional_Org_Metrics__c aom = new Additional_Org_Metrics__c();
                 aom.Category__c = 'Process Builder';
                 aom.Feature_Type__c = 'Process Builder';
-                aom.Component_Name__c =  flow.DeveloperName;
+                aom.Component_Name__c = flow.DeveloperName;
                 aom.External_Id__c = 'ProcessBuilder-' + inActiveFlowMap.get(flow.DeveloperName).Id;
                 aom.Process_Builder_Versions__c = (Integer) flow.expr0;
                 aom.Component_Id__c = inActiveFlowMap.get(flow.DeveloperName).Id;
@@ -247,8 +254,9 @@ public class UpeoAnalyzer {
 
         upsert aomList External_Id__c;
 
-        Id batchId = Database.executeBatch(new UpeoAnalyzerBatchProcessBuilder(), 50);
+        }
 
+        Id batchId = Database.executeBatch(new UpeoAnalyzerBatchProcessBuilder(), 50);
     }
 
     @future(callout = true)
@@ -299,7 +307,6 @@ public class UpeoAnalyzer {
 
     }
 
-    @future(callout = true)
     public static void getFieldUsage(List<String> objectTypes){
 
         system.debug('getFieldUsage was called');

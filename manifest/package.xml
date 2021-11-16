@@ -57,6 +57,7 @@
         <members>UpeoAnalyzerBatchProcessBuilder</members>
         <members>UpeoAnalyzerPBDetailWrapper</members>
         <members>UpeoAnalyzerFlowAggregate</members>
+        <members>UpeoAnalyzerBatchProcessBuilderTest</members>
         <name>ApexClass</name>
     </types>
     <types>
@@ -69,6 +70,7 @@
     <types>
         <members>Additional_Org_Metric_Record_Page</members>
         <members>Upeo_Analyzer_Dashboard</members>
+        <members>Upeo_Optimizer</members>
         <name>FlexiPage</name>
     </types>
     <types>
